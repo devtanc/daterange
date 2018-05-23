@@ -67,28 +67,38 @@ module.exports.getCalendarRange = (unit, shift = 0, date = new Date()) => {
 
   // Param checks
   if (!mappedUnit) {
-    throw new TypeError(`The provided unit [${unit}] is invalid. Expected one of [${Object.keys(unitMap).join(',')}]`)
+    throw new TypeError(
+      `The provided unit [${unit}] is invalid. Expected one of [${Object.keys(
+        unitMap,
+      ).join(',')}]`,
+    )
   }
   if (!Number.isInteger(shift)) {
-    parsedValue = parseInt(shift, 10)
+    const parsedValue = parseInt(shift, 10)
     if (Number.isNaN(parsedValue)) {
-      throw new TypeError(`Invalid value provided. Expected pareseable integer but saw ${ typeof shift }`)
+      throw new TypeError(
+        `Invalid value provided. Expected pareseable integer but saw ${typeof shift}`,
+      )
     } else {
       shift = parsedValue
     }
   }
   if (!(date instanceof Date)) {
-    throw new TypeError('Invalid type provided for end. Expected (end instanceof Date) to be true')
+    throw new TypeError(
+      'Invalid type provided for end. Expected (end instanceof Date) to be true',
+    )
   }
 
   // Function logic
   const { beginning, ending, subtract } = functionsByUnit[mappedUnit]
-  let shiftedDate = subtract(date, shift)
-  let start = beginning(shiftedDate)
+  const shiftedDate = subtract(date, shift)
+  const start = beginning(shiftedDate)
   let calculatedEnd = ending(shiftedDate)
 
   if (start.valueOf() > now.valueOf()) {
-    throw new RangeError('Invalied range specified. Calculated range is in the future')
+    throw new RangeError(
+      'Invalied range specified. Calculated range is in the future',
+    )
   }
   if (calculatedEnd.valueOf() > now.valueOf()) {
     calculatedEnd = now
@@ -96,6 +106,6 @@ module.exports.getCalendarRange = (unit, shift = 0, date = new Date()) => {
 
   return {
     start,
-    end: calculatedEnd
+    end: calculatedEnd,
   }
 }

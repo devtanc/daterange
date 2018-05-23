@@ -1,15 +1,25 @@
 {
   "name": "@devtanc/daterange",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A date range generating library",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "precommit": "lint-staged",
+    "lint": "xo",
+    "lint:fix": "npm run lint -- --fix"
   },
-  "keywords": [
-    "date",
-    "date-fns"
-  ],
+  "keywords": ["date", "date-fns"],
+  "lint-staged": {
+    "*.js": ["npm run lint:fix --", "git add"],
+    "*.{js,css,md}": ["prettier --write", "git add"],
+    "*.json": ["prettier --write --print-width=120", "git add"]
+  },
+  "xo": {
+    "prettier": true,
+    "env": ["node", "mocha"],
+    "plugins": ["node", "unicorn"]
+  },
   "author": "devtanc",
   "license": "MIT",
   "repository": {
@@ -20,6 +30,10 @@
     "date-fns": "^1.29.0"
   },
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.2",
+    "mocha": "^5.2.0",
+    "prettier": "^1.12.1",
+    "xo": "^0.21.1"
   }
 }
