@@ -1,6 +1,6 @@
 {
   "name": "@devtanc/daterange",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A date range generating library",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,10 @@
   ],
   "author": "devtanc",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devtanc/daterange"
+  },
   "dependencies": {
     "date-fns": "^1.29.0"
   },

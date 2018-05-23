@@ -2,6 +2,10 @@
 
 A library for generating date ranges as a simple wrapper around [date-fns](https://date-fns.org/)
 
+![npm (scoped)](https://img.shields.io/npm/v/@devtanc/daterange.svg)
+![CircleCI](https://img.shields.io/circleci/project/github/devtanc/daterange.svg)
+![GitHub issues](https://img.shields.io/github/issues/devtanc/daterange.svg)
+
 ## Installation
 
 ```js
