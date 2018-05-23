@@ -1,0 +1,21 @@
+{
+  "name": "@devtanc/daterange",
+  "version": "1.0.0",
+  "description": "A date range generating library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "date",
+    "date-fns"
+  ],
+  "author": "devtanc",
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "^1.29.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
