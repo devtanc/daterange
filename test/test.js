@@ -42,7 +42,7 @@ describe('Range Generator Test Suite', () => {
     })
   })
 
-  describe('Logic', () => {
+  describe('Calendar Range Logic', () => {
     describe('No Date Provided (end date/time is the moment the function is invoked)', () => {
       it('should return a valid range object { start: Date, end: Date } when no date or shift is provided', () => {
         const range = getCalendarRange('day')
@@ -99,6 +99,26 @@ describe('Range Generator Test Suite', () => {
           end: new Date(2018, 0, 1, 23, 59, 59, 999),
         })
       })
+    })
+  })
+
+  describe('Custom Range Logic', () => {
+    it('should return a range starting on a given date, forward x units', () => {
+      const range = getCustomRangeStarting(new Date(2018, 0, 1), 5, 'days')
+      const expectedRange = {
+        start: new Date(2018, 0, 1),
+        end: new Date(2018, 0, 6),
+      }
+      assert.deepEqual(range, expectedRange)
+    })
+
+    it('should return a range ending on a given date, back x units', () => {
+      const range = getCustomRangeEnding(new Date(2018, 0, 1), 5, 'days')
+      const expectedRange = {
+        end: new Date(2018, 0, 1),
+        start: new Date(2017, 11, 27),
+      }
+      assert.deepEqual(range, expectedRange)
     })
   })
 

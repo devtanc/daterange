@@ -1,6 +1,6 @@
 # daterange
 
-A library for generating date ranges as a simple wrapper around [date-fns](https://date-fns.org/)
+A library for generating past date ranges as a simple wrapper around [date-fns](https://date-fns.org/)
 
 ![npm (scoped)](https://img.shields.io/npm/v/@devtanc/daterange.svg)
 ![CircleCI](https://img.shields.io/circleci/project/github/devtanc/daterange.svg)
@@ -20,7 +20,7 @@ yarn add @devtanc/daterange
 
 ### Calendar Ranges
 
-This function is for generating ranges that conform to calendar units like days, weeks, months, quarters, or years. The return object is in the form of:
+This function is for generating ranges in the past that conform to calendar units like days, weeks, months, quarters, or years. This library does not currently handle ranges in the future. The return object is in the form of:
 
 ```js
 {
@@ -30,7 +30,11 @@ This function is for generating ranges that conform to calendar units like days,
 ```
 
 ```js
-import { getCalendarRange } from '@devtanc/daterange'
+import {
+  getCalendarRange,
+  getCustomRangeEnding,
+  getCustomRangeStarting,
+} from '@devtanc/daterange'
 // Arguments are (unit, shift, date). Only the unit is required (plural or singular are treated the same)
 // A positive shift means going BACK in time (like 6 days ago), negative goes forward
 // If no date or shift is provided, it is assumed that you want the current "unit" up until the current date/time
@@ -59,5 +63,19 @@ getCalendarRange('month', 1, new Date(2017, 2, 12))
 // {
 //   start: beginning of the month of February, 2017,
 //   end: end of the month of February, 2017
+// }
+
+getCalendarRangeStarting(new Date(2018, 0, 1), 5, 'days')
+// A range starting on the given date and extending past it x number of units
+// {
+//   start: new Date(2018, 0, 1),
+//   end: new Date(2018, 0, 6),
+// }
+
+getCustomRangeEnding(new Date(2018, 0, 1), 5, 'days')
+// A range starting on the given date and extending past it x number of units
+// {
+//   start: new Date(2017, 11, 27),
+//   end: new Date(2018, 0, 1),
 // }
 ```
