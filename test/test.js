@@ -1,7 +1,12 @@
 const assert = require('assert')
 const { startOfDay } = require('date-fns')
 
-const { getCalendarRange } = require('.')
+const {
+  getCalendarRange,
+  getCustomRangeEnding,
+  getCustomRangeStarting,
+  _capDate,
+} = require('.')
 
 const units = [
   ['day', 'days'],
@@ -22,6 +27,18 @@ describe('Range Generator Test Suite', () => {
 
         assert.deepEqual(rangeSingle, rangePlural)
       }
+    })
+  })
+
+  describe('Utils', () => {
+    it('Should cap dates correctly', () => {
+      const now = new Date()
+      const earlier = new Date(now.getFullYear() - 1, 0, 0, 0, 0, 0, 0)
+      const later = new Date(now.getFullYear() + 1, 0, 0, 0, 0, 0, 0)
+
+      assert.equal(now, _capDate(later, now))
+      assert.equal(now, _capDate(now, later))
+      assert.equal(earlier, _capDate(now, earlier))
     })
   })
 

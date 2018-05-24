@@ -1,10 +1,10 @@
 {
   "name": "@devtanc/daterange",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "A date range generating library",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --reporter=xunit --reporter-options output=test/results/mocha/results.xml",
     "precommit": "lint-staged",
     "lint": "xo",
     "lint:fix": "npm run lint -- --fix"
