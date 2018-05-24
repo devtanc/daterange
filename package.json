@@ -1,6 +1,6 @@
 {
   "name": "@devtanc/daterange",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A date range generating library",
   "main": "index.js",
   "scripts": {

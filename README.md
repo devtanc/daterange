@@ -2,9 +2,9 @@
 
 A library for generating past date ranges as a simple wrapper around [date-fns](https://date-fns.org/)
 
-![npm (scoped)](https://img.shields.io/npm/v/@devtanc/daterange.svg)
-![CircleCI](https://img.shields.io/circleci/project/github/devtanc/daterange.svg)
-![GitHub issues](https://img.shields.io/github/issues/devtanc/daterange.svg)
+[![npm (scoped)](https://img.shields.io/npm/v/@devtanc/daterange.svg)](https://www.npmjs.com/package/@devtanc/daterange)
+[![CircleCI](https://img.shields.io/circleci/project/github/devtanc/daterange.svg)](https://circleci.com/gh/devtanc/daterange)
+[![GitHub issues](https://img.shields.io/github/issues/devtanc/daterange.svg)](https://github.com/devtanc/daterange/issues)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
