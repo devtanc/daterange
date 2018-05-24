@@ -6,7 +6,7 @@ const {
   getCustomRangeEnding,
   getCustomRangeStarting,
   _capDate,
-} = require('.')
+} = require('../')
 
 const units = [
   ['day', 'days'],
